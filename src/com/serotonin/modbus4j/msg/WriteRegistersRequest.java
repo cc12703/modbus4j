@@ -51,6 +51,12 @@ public class WriteRegistersRequest extends ModbusRequest {
         data = convertToBytes(sdata);
     }
 
+    public WriteRegistersRequest(int slaveId, int startOffset, byte[] data) throws ModbusTransportException {
+        super(slaveId);
+        this.startOffset = startOffset;
+        this.data = data;
+    }
+
     /** {@inheritDoc} */
     @Override
     public void validate(Modbus modbus) throws ModbusTransportException {
